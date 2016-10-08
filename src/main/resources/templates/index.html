@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" value="发布" onClick="location.href='/insertcontroller'"/>
+<div>
+    <div th:each="blog,row:${blog}">
+    	<p>
+    	<div th:text="NO.+${row.count}"></div>
+        <div th:text="${blog?.title}"></div>
+        <div th:text="${blog?.blogcontent}"></div>
+        <div th:text="发布时间：+${blog?.ctime}"></div>
+        <!-- <input type="button" value="更新" onClick="location.href='/updatecontroller'"/> -->
+        <a href="#" th:href="@{/updatecontroller(id=${blog?.id})}">更新</a>
+        <a href="#" th:href="@{/deleteblog(id=${blog?.id})}">删除</a>
+        <!-- <input type="button" value="删除" onClick="location.href='/deleteblog'"/> -->
+        <p>
+    </div>
+</div>
+</body>
+</html>
